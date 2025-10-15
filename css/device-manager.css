@@ -1,0 +1,308 @@
+/* Device Manager Styles */
+:root {
+    --bg-dark: #1a1a2e;
+    --bg-darker: #16213e;
+    --white: #ffffff;
+    --gray: #c0c0c0;
+    --dark-gray: #808080;
+    --red: #ff0000;
+    --green: #00ff00;
+    --blue: #0078d4;
+    --gold: #ffd700;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--bg-dark);
+    font-family: 'VT323', monospace;
+    color: var(--white);
+    overflow: hidden;
+}
+
+.device-manager-app {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 2px inset var(--gray);
+}
+
+/* Window Header */
+.window-header {
+    background: linear-gradient(90deg, #0078d4, #106ebe);
+    color: var(--white);
+    padding: 4px 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: 'VT323', monospace;
+}
+
+.close-btn {
+    cursor: pointer;
+    padding: 2px 6px;
+    background: var(--gray);
+    border: 1px outset var(--gray);
+    color: var(--bg-dark);
+    font-size: 0.8rem;
+    font-family: 'VT323', monospace;
+}
+
+.close-btn:hover {
+    background: var(--red);
+    color: var(--white);
+    border: 1px inset var(--red);
+}
+
+/* Menu Bar */
+.menu-bar {
+    display: flex;
+    background: var(--gray);
+    border-bottom: 1px solid var(--dark-gray);
+    padding: 2px 0;
+}
+
+.menu-item {
+    padding: 4px 12px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--bg-dark);
+    font-family: 'VT323', monospace;
+    border-right: 1px solid var(--dark-gray);
+    position: relative;
+}
+
+.menu-item:hover {
+    background: var(--dark-gray);
+}
+
+/* Dropdown Menus */
+.dropdown-menu {
+    position: absolute;
+    background: var(--white);
+    border: 1px solid var(--dark-gray);
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    z-index: 1000;
+    min-width: 200px;
+    font-size: 0.8rem;
+    font-family: 'VT323', monospace;
+}
+
+.menu-option {
+    padding: 4px 12px;
+    cursor: pointer;
+    color: var(--bg-dark);
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.menu-option:hover {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.menu-option.selected {
+    background: var(--blue);
+    color: var(--white);
+}
+
+.menu-separator {
+    height: 1px;
+    background: var(--dark-gray);
+    margin: 2px 0;
+}
+
+/* Toolbar */
+.toolbar {
+    display: flex;
+    background: var(--gray);
+    border-bottom: 1px solid var(--dark-gray);
+    padding: 4px;
+    gap: 2px;
+}
+
+.toolbar-btn {
+    width: 24px;
+    height: 24px;
+    background: var(--gray);
+    border: 1px outset var(--gray);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: var(--bg-dark);
+}
+
+.toolbar-btn:hover {
+    border: 1px inset var(--gray);
+    background: var(--dark-gray);
+}
+
+.toolbar-btn:active {
+    border: 1px inset var(--gray);
+    background: var(--dark-gray);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+/* Device Tree Container */
+.device-tree-container {
+    flex: 1;
+    overflow-y: auto;
+    background: var(--white);
+    border: 1px solid var(--dark-gray);
+    margin: 2px;
+}
+
+/* Custom Scrollbar */
+.device-tree-container::-webkit-scrollbar {
+    width: 16px;
+}
+
+.device-tree-container::-webkit-scrollbar-track {
+    background: var(--gray);
+    border: 1px solid var(--dark-gray);
+}
+
+.device-tree-container::-webkit-scrollbar-thumb {
+    background: var(--dark-gray);
+    border: 1px outset var(--dark-gray);
+    border-radius: 0;
+}
+
+.device-tree-container::-webkit-scrollbar-thumb:hover {
+    background: #666;
+}
+
+.device-tree-container::-webkit-scrollbar-corner {
+    background: var(--gray);
+}
+
+/* Device Tree */
+.device-tree {
+    padding: 4px;
+    font-family: 'VT323', monospace;
+    font-size: 0.9rem;
+}
+
+.device-category {
+    margin-bottom: 2px;
+}
+
+.category-header {
+    display: flex;
+    align-items: center;
+    padding: 2px 4px;
+    cursor: pointer;
+    background: var(--white);
+    border: 1px solid transparent;
+}
+
+.category-header:hover {
+    background: #f0f0f0;
+    border: 1px solid var(--gray);
+}
+
+.expand-icon {
+    width: 16px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--bg-dark);
+}
+
+.device-icon {
+    width: 20px;
+    text-align: center;
+    margin: 0 4px;
+    font-size: 0.9rem;
+}
+
+.category-name {
+    flex: 1;
+    color: var(--bg-dark);
+    font-weight: bold;
+}
+
+.category-content {
+    margin-left: 20px;
+    border-left: 1px solid var(--gray);
+    padding-left: 8px;
+}
+
+/* Nested categories */
+.device-category .device-category {
+    margin-left: 0;
+    border-left: none;
+    padding-left: 0;
+}
+
+.device-category .device-category .category-content {
+    margin-left: 20px;
+    border-left: 1px solid var(--gray);
+    padding-left: 8px;
+}
+
+.device-item {
+    display: flex;
+    align-items: center;
+    padding: 1px 4px;
+    cursor: pointer;
+    background: var(--white);
+    border: 1px solid transparent;
+    margin-bottom: 1px;
+}
+
+.device-item:hover {
+    background: #f0f0f0;
+    border: 1px solid var(--gray);
+}
+
+.device-item.selected {
+    background: var(--blue);
+    color: var(--white);
+    border: 1px solid #005a9e;
+}
+
+.device-item.selected .device-status {
+    color: var(--white);
+}
+
+.device-name {
+    flex: 1;
+    color: var(--bg-dark);
+    margin-left: 4px;
+}
+
+.device-item.selected .device-name {
+    color: var(--white);
+}
+
+.device-status {
+    color: var(--green);
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+/* Status Bar */
+.status-bar {
+    background: var(--gray);
+    border-top: 1px solid var(--dark-gray);
+    padding: 2px 8px;
+    font-size: 0.8rem;
+    color: var(--bg-dark);
+    font-family: 'VT323', monospace;
+}
+
